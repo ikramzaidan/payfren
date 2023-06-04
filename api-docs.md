@@ -1,6 +1,6 @@
 # Payfren API Documentation
 ## API Key
-API Key diperlukan untuk mengakses semua _endpoint_ yang ada pada layanan API Payfren. Kamu perlu menambahkan prameter `apiKey` di setiap _endpoint_ untuk dapat mengakses layanan yang tersedia.
+API Key diperlukan untuk mengakses semua _endpoint_ yang ada pada layanan API Payfren. Kamu perlu menambahkan parameter `apiKey` di setiap _endpoint_ untuk dapat mengakses layanan yang tersedia.
 
 **_Example_**
 ```
@@ -42,7 +42,7 @@ API Key diperlukan untuk mengakses semua _endpoint_ yang ada pada layanan API Pa
 **_Response Schema_**
 | Field       | Type     | Description                                                                                                                                          |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ref_id      | `int`    | Pengidentifikasi unik dari sebuah transaksi (berbeda dengan field `ref`).                                                                            |
+| ref_id      | `int`    | Pengidentifikasi unik dari sebuah transaksi (berbeda dengan _field_ `ref`).                                                                            |
 | url         | `String` | URL untuk melakukan redirect ke halaman pembayaran dari Payfren.                                                                                     |                                                                                         |
 
 ## Check Payment Status
@@ -59,7 +59,7 @@ API Key diperlukan untuk mengakses semua _endpoint_ yang ada pada layanan API Pa
 **_Request Schema_**
 | Field       | Type     | Description                                                                                                                                          |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ref_id      | `int`    | Pengidentifikasi unik dari sebuah transaksi.                                                                                                         |
+| ref_id      | `int`    | Pengidentifikasi unik dari sebuah transaksi (berbeda dengan _field_ `ref`).                                                                                                         |
 
 ### Response
 **_Example Response_**
@@ -82,7 +82,7 @@ API Key diperlukan untuk mengakses semua _endpoint_ yang ada pada layanan API Pa
 | status      | `String` | Nilai pembayaran yang tercantum pada QR Code, customer hanya dapat melakukan pembayaran sesuai dengan nilai yang tertera setelah pemindaian QR Code. |
 | nominal     | `int`    | Nilai pembayaran yang tercantum pada QR Code, customer hanya dapat melakukan pembayaran sesuai dengan nilai yang tertera setelah pemindaian QR Code. |
 | tip         | `int`    | Nilai tip tambahan yang tertera setelah pemindaian QR Code.                                                                                          |
-| ref         | `String` | ID transaksi unik yang dibuat oleh merchant, minimal 1 karakter, maksimal 20 karakter, case insensitive (berbeda dengan field `ref`).                |
+| ref         | `String` | ID transaksi unik yang dibuat oleh merchant, minimal 1 karakter, maksimal 20 karakter, case insensitive.                |
 | callback    | `String` | URL untuk dapat menerima notifikasi pembayaran setelah pembayaran dilakukan oleh customer.                                                           |
 | vreated_at  | `datetime` | Waktu pembayaran dibuat.                                                                                                                           |
 | expired_at  | `datetime` | Batas waktu kadaluarsa atau expired semenjak pembayaran dibuat.                                                                                    |
