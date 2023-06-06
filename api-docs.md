@@ -1,10 +1,10 @@
 # Payfren API Documentation
 
-Payfren merupakan layanan API gerbang pembayaran QR di Indonesia. Kunjungi http://payfren.biz.id.
+Payfren merupakan layanan API gerbang pembayaran QR di Indonesia. Kunjungi https://payfren.biz.id.
 
 ## How to Use
 
-Semua _endpoint_ dapat diakses melalui `http://payfren.biz.id/api/`.
+Semua _endpoint_ dapat diakses melalui `https://payfren.biz.id/api/`.
 
 ## API Key
 API Key diperlukan untuk mengakses semua _endpoint_ yang ada pada layanan API Payfren. Kamu perlu menambahkan parameter `apiKey` di setiap _endpoint_ untuk dapat mengakses layanan yang tersedia.
