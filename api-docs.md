@@ -66,7 +66,7 @@ API Key diperlukan untuk mengakses semua _endpoint_ yang ada pada layanan API Pa
 **_Request Schema_**
 | Field       | Type     | Description                                                                                                                                          |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ref_id      | `int`    | Pengidentifikasi unik dari sebuah transaksi (berbeda dengan _field_ `ref`).                                                                                                         |
+| ref_id      | `int`    | Pengidentifikasi unik dari sebuah transaksi (berbeda dengan _field_ `ref`). |
 
 ### Response
 **_Example Response_**
@@ -86,10 +86,60 @@ API Key diperlukan untuk mengakses semua _endpoint_ yang ada pada layanan API Pa
 **_Response Schema_**
 | Field       | Type     | Description                                                                                                                                          |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| status      | `String` | Nilai pembayaran yang tercantum pada QR Code, customer hanya dapat melakukan pembayaran sesuai dengan nilai yang tertera setelah pemindaian QR Code. |
+| status      | `String` | Status pembayaran. |
 | nominal     | `int`    | Nilai pembayaran yang tercantum pada QR Code, customer hanya dapat melakukan pembayaran sesuai dengan nilai yang tertera setelah pemindaian QR Code. |
 | tip         | `int`    | Nilai tip tambahan yang tertera setelah pemindaian QR Code.                                                                                          |
 | ref         | `String` | ID transaksi unik yang dibuat oleh merchant, minimal 1 karakter, maksimal 20 karakter, case insensitive.                |
 | callback    | `String` | URL untuk dapat menerima notifikasi pembayaran setelah pembayaran dilakukan oleh customer.                                                           |
-| vreated_at  | `datetime` | Waktu pembayaran dibuat.                                                                                                                           |
+| created_at  | `datetime` | Waktu pembayaran dibuat.                                                                                                                           |
 | expired_at  | `datetime` | Batas waktu kadaluarsa atau expired semenjak pembayaran dibuat.                                                                                    |
+
+## List All Merchant Payments
+```
+[GET]  /api/payments_list
+```
+### Response
+**_Example Response_**
+```
+{
+    "data": [
+        {
+            "id": 11,
+            "nominal": 130000,
+            "tip": 0,
+            "ref": "ID40090",
+            "status": "paid",
+            "created_at": "2023-06-11 16:22:27",
+            "expired_at": "2023-06-05 00:57:00"
+        },
+        {
+            "id": 12,
+            "nominal": 230000,
+            "tip": 200,
+            "ref": "ID650087",
+            "status": "paid",
+            "created_at": "2023-06-07 01:23:28",
+            "expired_at": "2023-06-05 01:29:05"
+        },
+        {
+            "id": 13,
+            "nominal": 4700000,
+            "tip": 0,
+            "ref": "ID40001",
+            "status": "paid",
+            "created_at": "2023-06-07 01:17:48",
+            "expired_at": "2023-06-06 17:59:20"
+        }
+    ]
+}
+```
+**_Response Schema_**
+| Field       | Type     | Description                                                                                                                                          |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id      | `int` | Pengidentifikasi unik dari sebuah transaksi (berbeda dengan _field_ `ref`). |
+| nominal     | `int`    | Nilai pembayaran yang tercantum pada QR Code, customer hanya dapat melakukan pembayaran sesuai dengan nilai yang tertera setelah pemindaian QR Code. |
+| tip         | `int`    | Nilai tip tambahan yang tertera setelah pemindaian QR Code. |
+| ref         | `String` | ID transaksi unik yang dibuat oleh merchant, minimal 1 karakter, maksimal 20 karakter, case insensitive. |
+| status      | `String` | Status pembayaran. |
+| created_at  | `datetime` | Waktu pembayaran dibuat. |
+| expired_at  | `datetime` | Batas waktu kadaluarsa atau expired semenjak pembayaran dibuat. |
